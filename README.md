@@ -42,7 +42,8 @@ To run JavaScript files, use Node.js:
 1. Navigate to the `algo-js` directory:
 ```bash
 cd algo-js
-node bubbleSort.js
+npm install
+npm run dev
 ```
 
 **Python**
@@ -67,19 +68,9 @@ Tests are included to verify the correctness of the algorithms. You can run the 
 1. Install dependencies:
 
 ```bash
+cd algo-js
 npm install
-```
-
-2. Run tests:
-
-```bash
-npm test
-```
-
-#### Python (unittest)
-1. Run tests:
-```bash
-python -m unittest discover
+npm run test --watchAll
 ```
 
 ### Contributing
