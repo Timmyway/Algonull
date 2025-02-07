@@ -70,7 +70,7 @@ Tests are included to verify the correctness of the algorithms. You can run the 
 ```bash
 cd algo-js
 npm install
-npm run test --watchAll
+npm run test:watch
 ```
 
 ### Contributing
