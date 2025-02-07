@@ -1,0 +1,28 @@
+# Ignore node_modules for JavaScript
+algo-js/node_modules/
+
+# Ignore Python bytecode and virtual environments
+algo-py/__pycache__/
+algo-py/*.pyc
+algo-py/*.pyo
+algo-py/venv/
+algo-py/env/
+
+# Ignore .env files (if any) for sensitive data
+*.env
+
+# Ignore log files
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+
+# Ignore npm and Python lock files
+package-lock.json
+yarn.lock
+Pipfile.lock
