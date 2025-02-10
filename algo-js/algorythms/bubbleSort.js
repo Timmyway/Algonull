@@ -1,39 +1,40 @@
-// Bubble Sort Algorithm - A simple sorting algorithm that repeatedly steps through the list, compares adjacent items, and swaps them if they are in the wrong order.
+// Algorithme de tri à bulles - Un algorithme de tri simple qui parcourt la liste plusieurs fois, 
+// compare les éléments adjacents et les échange s'ils ne sont pas dans le bon ordre.
 
 export default function bubbleSort(arr) {
-    // If the array has zero or one element, it is already sorted
+    // Si le tableau contient zéro ou un élément, il est déjà trié
     if (arr.length <= 1) {
         return arr;
     }
     
-    // Get the length of the array
+    // Obtenir la longueur du tableau
     let n = arr.length;
 
-    // Outer loop controls how many rounds we need to run through the array
+    // La boucle externe contrôle le nombre de tours à effectuer sur le tableau
     for (let i = 0; i < n; i++) {
-        // Flag to check if any elements were swapped in the current round
+        // Indicateur pour vérifier si des éléments ont été échangés lors de ce tour
         let swapped = false;
 
-        // Inner loop to compare adjacent elements (n - i - 1 is used to avoid unnecessary comparisons).
-        // Adjacent means that we compare the current element with the next one in the array.
+        // Boucle interne pour comparer les éléments adjacents (n - i - 1 permet d'éviter les comparaisons inutiles).
+        // Adjacents signifie que l'on compare l'élément actuel avec le suivant dans le tableau.
         for (let j = 0; j < n - i - 1; j++) {
-            // If the current element is greater than the next, swap them
+            // Si l'élément actuel est plus grand que le suivant, on les échange
             if (arr[j] > arr[j + 1]) {
-                // Destructuring swap syntax to swap values
-                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; // Swap
+                // Syntaxe de déstructuration pour échanger les valeurs
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; // Échange
 
-                // Set the flag to true since a swap occurred
+                // Définir l'indicateur à true puisque qu'un échange a eu lieu
                 swapped = true;
 
-                // Optionally log the swap (this is for debugging or visualization purposes)
+                // Optionnellement, afficher l'échange (utile pour le débogage ou la visualisation)
                 console.log(`${arr[j]} <=> ${arr[j + 1]}`);
             }
         }
 
-        // Log the state of the array after each round for better visualization
-        console.log(`Round: ${i + 1}`);
+        // Afficher l'état du tableau après chaque tour pour mieux visualiser le processus
+        console.log(`Tour : ${i + 1}`);
 
-        // If no elements were swapped, the array is already sorted, so break early
+        // Si aucun élément n'a été échangé, le tableau est déjà trié, donc on peut sortir de la boucle
         if (!swapped) break;
     }
     return arr;

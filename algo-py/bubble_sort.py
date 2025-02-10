@@ -1,54 +1,54 @@
 import unittest
 from random import shuffle
 
-# Sample list of players
+# Liste d'exemple de joueurs
 players = [1, 2, 3, 4, 5, 6, 7]
 
-# Shuffle the list randomly to simulate an unsorted input
+# Mélanger la liste aléatoirement pour simuler une entrée non triée
 shuffle(players)
-print(f'Input: {players}')
+print(f'Entrée : {players}')
 
-# Bubble sort algorithm function
+# Fonction implémentant l'algorithme du tri à bulles
 def bubble_sort(arr):
 	n = len(arr)
 
-	# Early exit if the list is empty or has only one element
+	# Sortie anticipée si la liste est vide ou contient un seul élément
 	if n <= 1:
 		return arr
 
-	# Outer loop to track rounds of sorting
+	# Boucle externe pour suivre les tours de tri
 	for i in range(n):
-		swapped = False # Flag to track if any elements were swapped in this round
-		for j in range(0, n - i - 1): # The -i avoids re-checking already sorted elements		
-			if arr[j] > arr[j + 1]: # If the current element is greater than the next
-				arr[j], arr[j + 1] = arr[j + 1], arr[j] # Swap them
-				swapped = True # Mark that a swap happened
+		swapped = False # Indicateur pour vérifier si un échange a eu lieu dans ce tour
+		for j in range(0, n - i - 1): # Le -i évite de revérifier les éléments déjà triés		
+			if arr[j] > arr[j + 1]: # Si l'élément actuel est plus grand que le suivant
+				arr[j], arr[j + 1] = arr[j + 1], arr[j] # Les échanger
+				swapped = True # Marquer qu'un échange a eu lieu
 
-				# Print swap details for debugging/learning
+				# Afficher les détails de l'échange pour le débogage/apprentissage
 				print(f'{arr[j]} <=> {arr[j+1]}')
 
-		# Print the state of the array after each round		
-		print(f'Round: {i + 1}')	
+		# Afficher l'état du tableau après chaque tour		
+		print(f'Tour : {i + 1}')	
 
-		# If no elements were swapped, the list is already sorted, so break early
+		# Si aucun échange n'a eu lieu, la liste est déjà triée, donc on arrête prématurément
 		if not swapped:
 			break
 
-	return arr # Return the sorted array
+	return arr # Retourner la liste triée
 
-# Unit test class for Bubble Sort algorithm
+# Classe de test unitaire pour l'algorithme du tri à bulles
 class TestBubbleSort(unittest.TestCase):
 	def test_bubble_sort(self):
 		players = [1, 2, 3, 4, 5, 6, 7]
-		shuffled_players = players[:]  # Copy the original list to preserve it	
-		shuffle(shuffled_players) # Shuffle the list for testing
+		shuffled_players = players[:]  # Copier la liste originale pour la préserver	
+		shuffle(shuffled_players) # Mélanger la liste pour le test
 
-		# Call the bubble_sort function and store the result
+		# Appeler la fonction bubble_sort et stocker le résultat
 		sorted_players = bubble_sort(shuffled_players)
 
-		# Assert that the output of bubble_sort is the same as the expected sorted list
-		self.assertEqual(sorted_players, sorted(players))  # Compare with Python's built-in sorted function
+		# Vérifier que le résultat de bubble_sort est identique à la liste triée attendue
+		self.assertEqual(sorted_players, sorted(players))  # Comparer avec la fonction sorted() de Python
 
-# Run the unit tests when this script is executed
+# Exécuter les tests unitaires lorsque ce script est lancé
 if __name__ == '__main__':
 	unittest.main()
