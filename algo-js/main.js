@@ -1,5 +1,6 @@
 // Importation de l'algorithme du tri à bulles depuis le dossier algorythms
 import bubbleSort from "./algorythms/bubbleSort.js";
+import mergeSort from './algorythms/mergeSort.js';
 
 // Exemple d'utilisation de la fonction bubbleSort
 
@@ -14,6 +15,8 @@ console.log("Entrée :", players);
 
 // Appliquer l'algorithme du tri à bulles au tableau mélangé
 // On crée une copie du tableau avec [...players] pour éviter de modifier l'original
-const sortedPlayers = bubbleSort([...players]);
+// const sortedPlayersWithBubbleSort = bubbleSort([...players]);
+const sortedPlayersWithMergeSort = mergeSort([...players]);
 
-console.log("Trié :", sortedPlayers);
+// console.log("Trié en utilisant 'Bubble Sort' :", sortedPlayersWithBubbleSort);
+console.log("Trié en utilisant 'Merge Sort' :", sortedPlayersWithMergeSort);
